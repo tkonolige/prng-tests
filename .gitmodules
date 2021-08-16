@@ -1,0 +1,6 @@
+[submodule "TestU01-2009"]
+	path = TestU01-2009
+	url = https://github.com/umontreal-simul/TestU01-2009.git
+[submodule "sts"]
+	path = sts
+	url = https://github.com/arcetri/sts.git
