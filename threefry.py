@@ -23,8 +23,8 @@ def threefry_split_generate():
     return relay.create_executor("graph", tvm.IRModule.from_expr(f), target="llvm", device=tvm.cpu()).evaluate()
 
 
-# f = threefry_generate()
-f = threefry_split_generate()
+f = threefry_generate()
+# f = threefry_split_generate()
 
 gen = tvm.nd.array(np.array([0, 0, 0, 0, 0, 0, 0, 0, 1 << 63, 0], dtype="uint64"))
 while True:

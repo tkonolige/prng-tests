@@ -42,4 +42,20 @@ practrand-lcg: PractRand/RNG_test lcg
 	./lcg | PractRand/RNG_test stdin32
 
 testu01-lcg: TestU01-2009-install/bin/testu01 lcg
-	./lcg | testu01
+	./lcg | TestU01-2009-install/bin/testu01
+
+splitmix: splitmix.hpp splitmix.cc
+	g++ -O3 -o $@ splitmix.cc
+
+.PHONY: splitmix-lcg sts-lcg testu01-lcg
+
+sts-splitmix: sts/sts splitmix
+	rm -rf result.txt
+	./splitmix | sts/sts -i 1000 -
+	cat result.txt
+
+practrand-splitmix: PractRand/RNG_test splitmix
+	./splitmix | PractRand/RNG_test stdin32
+
+testu01-splitmix: TestU01-2009-install/bin/testu01 splitmix
+	./splitmix | TestU01-2009-install/bin/testu01
